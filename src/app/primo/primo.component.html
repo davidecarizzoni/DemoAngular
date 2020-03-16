@@ -18,5 +18,26 @@
 <div>
   <a href={{linkURL}}>Link</a> <!--si usa per le variabili-->
 </div>
+
+
+<div> {{lista[0]}} </div>
+<div> {{lista[1]}} </div>
+<div> {{lista[2]}} </div> 
+<!-- DOVREBBE DARE ERRORE -->
+
+<div  *ngFor="let pippo of lista">
+  {{pippo}}
+</div>
+
+
+<p>{{titoloInput | uppercase}} works</p>
 <p>{{titoloInput}}</p>
+
+<p>{{myDate}}</p>
+<p>{{myDate | date}}</p>
 <!-- Ctrl k + c -->
+
+
+<p>{{oggetto1?.chiave}}</p> 
+<p>{{oggetto?.chiave}}</p>  
+<!-- Se prprietà c'è restituisce valore, altrimenti stringa vuota -->
