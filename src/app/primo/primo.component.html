@@ -1,1 +1,22 @@
-<p>primo works!</p>
+<p> {{title}} </p>
+<p [innerHTML]="title"> </p>
+<p> title </p>
+
+
+<p> {{htmlString}} </p> <!--VISUALIZZA CODICE HTML USATO-->
+<p [innerHTML]="htmlString"> </p> <!--VISUALIZZA RISULTATO-->
+
+<div>
+  <a href="https://www.google.it/">Link</a>
+</div>
+
+<div>
+  <a [href]="linkURL">Link</a> <!-- href come fosse una properties di angular-->
+<!--Dopo le [] si aspetta una variabile già definita nell'app component-->
+</div>
+
+<div>
+  <a href={{linkURL}}>Link</a> <!--si usa per le variabili-->
+</div>
+<p>{{titoloInput}}</p>
+<!-- Ctrl k + c -->
