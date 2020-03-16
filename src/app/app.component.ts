@@ -13,4 +13,5 @@ export class AppComponent {
   }
 
   htmlString = "<div> <p> Prova </p></div>"
+  linkURL ="https://www.google.it/"
 }
