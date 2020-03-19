@@ -1,11 +1,26 @@
-<div (click)="clickEvent($event,1)">
-    <p>testo</p>
-    <button (click)="clickEvent($event,2)" >Cliccami </button>
+<div (click)="clickEvent($event, 1)">
+    <p>Testo</p>
+    <button (click)="clickEvent($event, 2)">Cliccami</button>
 </div>
+
 
 <p>{{testo}}</p>
 
-<input (input)="inputEvent('')" [value]="testo"> 
-<input (input)="testo = $event.targer.value" [value]="testo"> 
-<input [(ngModel)]="testo">
+<!-- i due esempi sotto sono equivalenti -->
+<div>
+    <label> two way binding a mano</label>
+    <input (input)="inputEvent($event)" [value]="testo">
+</div>
+<div>
+    <label> one way binding verso l'utente [value]="testo"</label>
+    <input [value]="testo">
+</div>
+<div>
+    <label> one way binding verso il codice (input)="inputEvent(this.testo = $event .target.value;)"</label>
+    <input (input)="inputEvent($event)">
+</div>
+<div>
+    <label> two way binding con ngModel</label>
+    <input [(ngModel)]="testo">
+</div>
 

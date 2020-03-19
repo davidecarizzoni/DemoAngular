@@ -15,7 +15,7 @@ export class SecondoComponent implements OnInit {
 
 
   clickEvent(pippo: MouseEvent, param:number) {
-   if(param == 2){
+   if(param === 2){
     this.testo="Default";
    }
     console.log('Ho cliccato il pulsante '+param);
