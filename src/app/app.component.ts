@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Titolo'
+
+  clickAppComponent(value: string){
+    console.log("cliccato da secondo in app " + value);
+  }
 }

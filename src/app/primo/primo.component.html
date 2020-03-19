@@ -1,43 +1,28 @@
-<p> {{title}} </p>
-<p [innerHTML]="title"> </p>
-<p> title </p>
+<p [class.colorRed]="toggleStyle" [class.boldStyle]="!toggleStyle">{{titoloInput | lowercase}}</p>
+<p class="boldStyle">{{myDate}}</p>
+<p [ngClass]="myStyles">{{myDate | date:'longDate' | uppercase}}</p>
+<button (click)="toggleStyle = !toggleStyle">Toggle Style</button>
 
 
-<p> {{htmlString}} </p> <!--VISUALIZZA CODICE HTML USATO-->
-<p [innerHTML]="htmlString"> </p> <!--VISUALIZZA RISULTATO-->
+<p>{{oggetto?.chiave}} </p>
+<p>{{oggetto1?.chiave}} </p>
 
+<div *ngFor="let pippo of lista">
+    {{pippo}}
+</div>
+<!-- Da preferire l'interpolazione, a meno che non si ha dell'html nella string -->
+<p>{{title}}</p>
+<p [innerHTML]="title"></p>
+<p>title</p>
+<div>{{htmlString}}</div>
+<div [innerHTML]="htmlString"></div>
+<!-- qui sotto preferire le property -->
 <div>
-  <a href="https://www.google.it/">Link</a>
+    <a href="https://google.it">Link</a>
 </div>
-
 <div>
-  <a [href]="linkURL">Link</a> <!-- href come fosse una properties di angular-->
-<!--Dopo le [] si aspetta una variabile già definita nell'app component-->
+    <a [href]="linkUrl">Link</a>
 </div>
-
 <div>
-  <a href={{linkURL}}>Link</a> <!--si usa per le variabili-->
+    <a href="{{linkUrl}}">Link</a>
 </div>
-
-
-<div> {{lista[0]}} </div>
-<div> {{lista[1]}} </div>
-<div> {{lista[2]}} </div> 
-<!-- DOVREBBE DARE ERRORE -->
-
-<div  *ngFor="let pippo of lista">
-  {{pippo}}
-</div>
-
-
-<p>{{titoloInput | uppercase}} works</p>
-<p>{{titoloInput}}</p>
-
-<p>{{myDate}}</p>
-<p>{{myDate | date}}</p>
-<!-- Ctrl k + c -->
-
-
-<p>{{oggetto1?.chiave}}</p> 
-<p>{{oggetto?.chiave}}</p>  
-<!-- Se prprietà c'è restituisce valore, altrimenti stringa vuota -->

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-secondo',
@@ -6,24 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secondo.component.scss']
 })
 export class SecondoComponent implements OnInit {
-
   testo: string = 'Iniziale';
+  
+  @Output()
+  myClick: EventEmitter<string> = new EventEmitter();
+  
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
-  clickEvent(pippo: MouseEvent, param:number) {
-   if(param === 2){
-    this.testo="Default";
-   }
-    console.log('Ho cliccato il pulsante '+param);
-    pippo.stopPropagation();
-    //senza questo, cliccando il bottone nel div si prende due click
+  clickEvent(ev: MouseEvent, param: number){
+    if(param === 2){
+      this.myClick.emit("questo è un evento custom");
+      this.testo = 'Default';
+      
+    }
+    console.log('ho cliccato il pulsante: '+param);
+    ev.stopPropagation();
   }
 
   inputEvent(ev){
-    this.testo =ev.targer.value ;
+    this.testo = ev.target.value;
   }
+
+  clickNew(value: string){
+    console.log(value);
+  }
+
 }
